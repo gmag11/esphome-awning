@@ -15,7 +15,7 @@ from esphome.const import (
 )
 
 CONF_CALIBRATE = "calibrate"
-CONF_CALIBRATION_ENABLED = "calibration_enabled"
+CONF_CALIBRATION_ENABLED = "enabled"
 CONF_RESET_SEQUENCE = "reset_sequence"
 CONF_UP_SEQUENCE = "up_sequence"
 CONF_DOWN_SEQUENCE = "down_sequence"
