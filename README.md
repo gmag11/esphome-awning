@@ -105,7 +105,7 @@ A complete configuration with physical up/down buttons, calibration, and Home As
 
 ```yaml
 esphome:
-  name: toldo-salon
+  name: cover
 
 external_components:
   - source:
@@ -121,11 +121,12 @@ esp8266:
 
 # API for Home Assistant
 api:
-  password: ""
+  encryption:
+    key: !secret api_encryption_key
 
 ota:
   - platform: esphome
-    password: ""
+    password: !secret ota_password
 
 wifi:
   ssid: !secret wifi_ssid
