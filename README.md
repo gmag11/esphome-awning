@@ -154,10 +154,10 @@ binary_sensor:
     id: push_up
     on_press:
       then:
-        - cover.open: toldo_salon
+        - cover.open: cover
     on_release:
       then:
-        - cover.stop: toldo_salon
+        - cover.stop: cover
 
   - platform: gpio
     pin:
@@ -170,10 +170,10 @@ binary_sensor:
     id: push_down
     on_press:
       then:
-        - cover.close: toldo_salon
+        - cover.close: cover
     on_release:
       then:
-        - cover.stop: toldo_salon
+        - cover.stop: cover
 
 # Status LED
 light:
@@ -187,7 +187,7 @@ light:
 cover:
   - platform: awning
     name: "Salon Awning"
-    id: toldo_salon
+    id: cover
     device_class: awning
     open_duration: 30s
     close_duration: 30s
@@ -228,21 +228,21 @@ button:
     name: "Reset Calibration"
     on_press:
       - awning.calibrate:
-          id: toldo_salon
+          id: cover
           action: reset
 
   - platform: template
     name: "Top Limit"
     on_press:
       - awning.calibrate:
-          id: toldo_salon
+          id: cover
           action: up
 
   - platform: template
     name: "Bottom Limit"
     on_press:
       - awning.calibrate:
-          id: toldo_salon
+          id: cover
           action: down
 ```
 
