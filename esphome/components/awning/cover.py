@@ -142,6 +142,7 @@ async def to_code(config):
             cv.Required(CONF_ACTION): cv.templatable(validate_calibration_action),
         }
     ),
+    synchronous=True,
 )
 def awning_calibrate_to_code(config, action_id, template_arg, args):
     var = cg.new_Pvariable(action_id, template_arg)
