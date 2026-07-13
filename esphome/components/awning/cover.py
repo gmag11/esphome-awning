@@ -12,6 +12,7 @@ from esphome.const import (
     CONF_OPEN_ACTION,
     CONF_OPEN_DURATION,
     CONF_STOP_ACTION,
+    DEVICE_CLASS_AWNING,
 )
 
 CONF_CALIBRATE = "calibrate"
@@ -59,9 +60,12 @@ CalibrateAction = awning_ns.class_("CalibrateAction", automation.Action)
 
 CONF_HAS_BUILT_IN_ENDSTOP = "has_built_in_endstop"
 
-CONFIG_SCHEMA = cover.COVER_SCHEMA.extend(
+CONFIG_SCHEMA = cover.cover_schema(
+    AwningCover,
+    device_class=DEVICE_CLASS_AWNING,
+    icon="mdi:window-shutter",
+).extend(
     {
-        cv.GenerateID(): cv.declare_id(AwningCover),
         cv.Required(CONF_OPEN_DURATION): cv.positive_time_period_milliseconds,
         cv.Required(CONF_CLOSE_DURATION): cv.positive_time_period_milliseconds,
         cv.Required(CONF_OPEN_ACTION): automation.validate_automation(single=True),
